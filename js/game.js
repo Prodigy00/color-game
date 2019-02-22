@@ -7,8 +7,15 @@ const colors = [
     'rgb(0, 0, 255)', 
     'rgb(255, 0, 255)'
 ];
+
 // select all six squares, loop through them and assign a color each from the array to the squares
 const squares = document.querySelectorAll('.square');
+// selecting a target color for rgb game
+const targetColor = colors[3];
+const displayColor = document.getElementById('displayColor');
+
+displayColor.textContent = targetColor;
+
 for (let i = 0; i < squares.length; i++) {
     squares[i].style.backgroundColor = colors[i];
 }
