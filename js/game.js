@@ -13,9 +13,38 @@ const squares = document.querySelectorAll('.square');
 // selecting a target color for rgb game
 const targetColor = colors[3];
 const displayColor = document.getElementById('displayColor');
+const messageBoard = document.getElementById('message');
 
 displayColor.textContent = targetColor;
 
 for (let i = 0; i < squares.length; i++) {
+    // adding inital colors to squares
     squares[i].style.backgroundColor = colors[i];
+
+    // addding event listeners to click events on the squares
+    squares[i].addEventListener('click', function() {
+        // grab color of clicked square
+        const clickedColor = squares[i].style.backgroundColor;
+
+      const messageSucess = () => {
+            messageBoard.textContent = 'Correct!';
+            colorChange(clickedColor);
+        };
+       const messageFail = () => {
+            squares[i].style.backgroundColor = '#232323';
+            messageBoard.textContent = 'Try Again';
+        };
+
+        // compare color to targetColor
+        (clickedColor === targetColor) ? messageSucess() : messageFail();
+            
+    });
 }
+
+    const colorChange  = color => {
+        //  loop through all squares
+        // change each color to match target color when clicked.
+        for(let i = 0; i < squares.length; i++){
+            squares[i].style.backgroundColor = color;
+        }
+    }
