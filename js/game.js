@@ -10,8 +10,17 @@ const colors = [
 
 // select all six squares, loop through them and assign a color each from the array to the squares
 const squares = document.querySelectorAll('.square');
+
+// adding function for randomly selecting color at beginning of wach game
+const selectedColor = () => {
+    // generate number between 0 and 1
+    // multiply by the length of the colors array
+  const random =  Math.floor((Math.random() * colors.length));
+  return colors[random];
+};
+
 // selecting a target color for rgb game
-const targetColor = colors[3];
+const targetColor = selectedColor();
 const displayColor = document.getElementById('displayColor');
 const messageBoard = document.getElementById('message');
 
@@ -47,4 +56,6 @@ for (let i = 0; i < squares.length; i++) {
         for(let i = 0; i < squares.length; i++){
             squares[i].style.backgroundColor = color;
         }
-    }
+    };
+
+    
