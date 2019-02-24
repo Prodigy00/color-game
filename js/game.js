@@ -1,17 +1,28 @@
+const generateRandomColors = number => {
+    // make an array
+    const arr = [];
+    // repeat 'number' times
+    for(let i = 0; i <= number; i**) {
+        // get random color and push into array
+
+    }
+    // return that array
+    return arr;
+}
+
+function randomColor() {
+    //need to pick a 'red' from 0-255
+    //need to pick a 'blue' from 0-255
+    //need to pick a 'green' from 0-255
+}
+
 //giving the squares different colors
-const colors = [
-    'rgb(255, 0, 0)', 
-    'rgb(255, 255, 0)', 
-    'rgb(0, 255, 0)', 
-    'rgb(0, 255, 255)', 
-    'rgb(0, 0, 255)', 
-    'rgb(255, 0, 255)'
-];
+const colors = generateRandomColors();
 
 // select all six squares, loop through them and assign a color each from the array to the squares
 const squares = document.querySelectorAll('.square');
 
-// adding function for randomly selecting color at beginning of wach game
+// adding function for randomly selecting color at beginning of each game
 const selectedColor = () => {
     // generate number between 0 and 1
     // multiply by the length of the colors array
@@ -58,4 +69,3 @@ for (let i = 0; i < squares.length; i++) {
         }
     };
 
-    
