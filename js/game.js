@@ -2,22 +2,26 @@ const generateRandomColors = number => {
     // make an array
     const arr = [];
     // repeat 'number' times
-    for(let i = 0; i <= number; i**) {
+    for(let i = 0; i <= number; i++) {
         // get random color and push into array
-
+        arr.push(randomColor());
     }
     // return that array
     return arr;
 }
 
-function randomColor() {
+const randomColor = () => {
     //need to pick a 'red' from 0-255
-    //need to pick a 'blue' from 0-255
+   const r = Math.floor(Math.random() * 256);
     //need to pick a 'green' from 0-255
+    const g = Math.floor(Math.random() * 256);
+    //need to pick a 'blue' from 0-255
+    const b = Math.floor(Math.random() * 256);
+    return `rgb(${r}, ${g}, ${b})`;
 }
 
 //giving the squares different colors
-const colors = generateRandomColors();
+const colors = generateRandomColors(6);
 
 // select all six squares, loop through them and assign a color each from the array to the squares
 const squares = document.querySelectorAll('.square');
@@ -61,7 +65,7 @@ for (let i = 0; i < squares.length; i++) {
     });
 }
 
-    const colorChange  = color => {
+    function colorChange(color) {
         //  loop through all squares
         // change each color to match target color when clicked.
         for(let i = 0; i < squares.length; i++){
