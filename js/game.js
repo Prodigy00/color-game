@@ -38,14 +38,16 @@ const selectedColor = () => {
 const targetColor = selectedColor();
 const displayColor = document.getElementById('displayColor');
 const messageBoard = document.getElementById('message');
+const h1 = document.querySelector('h1');
 
 displayColor.textContent = targetColor;
+
 
 for (let i = 0; i < squares.length; i++) {
     // adding inital colors to squares
     squares[i].style.backgroundColor = colors[i];
 
-    // addding event listeners to click events on the squares
+    // adding event listeners to click events on the squares
     squares[i].addEventListener('click', function() {
         // grab color of clicked square
         const clickedColor = squares[i].style.backgroundColor;
@@ -53,6 +55,7 @@ for (let i = 0; i < squares.length; i++) {
       const messageSucess = () => {
             messageBoard.textContent = 'Correct!';
             colorChange(clickedColor);
+            h1.style.backgroundColor = clickedColor;
         };
        const messageFail = () => {
             squares[i].style.backgroundColor = '#232323';
@@ -65,11 +68,10 @@ for (let i = 0; i < squares.length; i++) {
     });
 }
 
-    function colorChange(color) {
-        //  loop through all squares
-        // change each color to match target color when clicked.
-        for(let i = 0; i < squares.length; i++){
-            squares[i].style.backgroundColor = color;
-        }
-    };
-
+function colorChange(color) {
+    //  loop through all squares
+    // change each color to match target color when clicked.
+    for(let i = 0; i < squares.length; i++){
+        squares[i].style.backgroundColor = color;
+    }
+}
